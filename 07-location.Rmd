@@ -27,6 +27,7 @@ There are also many non-commercial applications that can use the technique for p
 People are fundamental to location analysis, in particular where they are likely spend their time and other resources.
 However, ecological concepts and models can be useful for store location analysis.
 Animals have needs can best meet their needs in certain 'optimal' locations, based on variables that change over space [@muenchow_review_2017]<!--and chapter xx-->.
+
 <!-- add reference!! -->
 Polar bears, for example, prefer northern latitudes where temperatures are lower and food (seals and sea lions) is plentiful.
 Similarly, humans tend to congregate certain places, creating economic niches (and high land prices) analogous to the ecological niche of the Arctic.
@@ -525,7 +526,7 @@ The bike paths density might be another interesting variable as well as the purc
 However, to find out about such an interaction we would need customer data.
 
 In short, the presented analysis is far from perfect.
-Nevertheless, it should have given you a first impression and understanding of how to obtain, and deal with spatial data in R within a geomarketing context.
+Nevertheless, it should have given you a first impression and understanding of how to obtain, and deal with spatial data in R within a location analysis context.
 
 Finally, we have to point out that the presented analysis would be merely the first step of finding suitable locations.
 So far we have identified areas, 1 by 1 km in size, potentially suitable for a bike shop in accordance with our survey.
