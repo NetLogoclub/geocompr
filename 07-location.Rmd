@@ -67,13 +67,10 @@ One can either download a 1 km or a 100 m resolution.
 Here, we download the 1 km data, unzip it and read it into R.
 
 ```{r, eval = FALSE}
-url = paste0("https://www.zensus2011.de/SharedDocs/Downloads/DE/", 
-             "Pressemitteilung/DemografischeGrunddaten/csv_Zensusatlas_", 
-             "klassierte_Werte_1km_Gitter.zip?__blob=publicationFile&v=8")
-download.file(url = url, destfile = file.path(tempdir(), "census.zip"),
-              method = "auto", mode = "wb")
+url = paste0("https://tinyurl.com/ybtpkwxz")
+download.file(url, destfile = "census.zip")
 # list the file names
-nms = unzip(file.path(tempdir(), "census.zip"), list = TRUE)
+({nms = unzip("census.zip", list = TRUE)})
 # unzip only the csv file
 base_name = grep(".csv$", nms$Name, value = TRUE)
 unzip(file.path(tempdir(), "census.zip"), files = base_name, exdir = tempdir())
