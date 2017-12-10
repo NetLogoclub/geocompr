@@ -45,7 +45,7 @@ This case study is described in the next section.
 ## Case study: bike shops in Germany
 
 Imagine you are starting a chain of bike shops in Germany.
-A survey suggests that single males between aged 20 to 40 are most likely to buy your products: this is the *target audience*.
+A survey suggests that single young males (aged 20 to 40) are most likely to buy your products: this is the *target audience*.
 You are in the lucky position to have sufficient capital to open a number of shops.
 But where should they be placed?
 Geomarketing consultancies have been developed to help people answer such questions, and they would happily charge high rates for their expertise.
