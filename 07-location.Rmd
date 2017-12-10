@@ -42,11 +42,11 @@ Typical research questions include:
 This chapter demonstrates how geocomputation can answer such questions based on a hypothetical case study with based on real data.
 This case study is described in the next section.
 
-## Case study
+## Case study: bike shops in Germany
 
-Imagine your are launching a cycling company and would like to open shops across urban areas of Germany.
-Imagine further that a survey you conducted indicates following target group: males between 20-40 years old who live alone or with just one person (single households, not families).
-Additionally, you are in the lucky position to have sufficient capital to open a number of shops.
+Imagine you are starting a chain of bike shops in Germany.
+A survey suggests that single males between aged 20 to 40 are most likely to buy your products: this is the *target audience*.
+You are in the lucky position to have sufficient capital to open a number of shops.
 But where should they be placed?
 Geomarketing consultancies have been developed to help people answer such questions, and they would happily charge high rates for their expertise.
 <!--It is testament to the rate of technological development that these questions can now be answered by informed citizens using free and open source software.-->
