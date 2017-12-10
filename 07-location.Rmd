@@ -67,16 +67,10 @@ The German government provides a csv-file containing gridded census data of 2011
 One can either download a 1 km or a 100 m resolution.
 Here, we download the 1 km data, unzip it and read it into R.
 
-```{r, eval = FALSE}
-url = paste0("https://tinyurl.com/ybtpkwxz")
-download.file(url, destfile = "census.zip")
-# list the file names
-({nms = unzip("census.zip", list = TRUE)})
-# unzip only the csv file
-base_name = grep(".csv$", nms$Name, value = TRUE)
-unzip(file.path(tempdir(), "census.zip"), files = base_name, exdir = tempdir())
-# read in the csv file
-census = readr::read_csv2(file.path(tempdir(), base_name))
+```{r, eval=FALSE}
+download.file("https://tinyurl.com/ybtpkwxz", destfile = "census.zip")
+unzip("census.zip") # unzip the files
+census = readr::read_csv2(list.files(pattern = "Gitter.csv"))
 ```
 
 ```{r, echo = FALSE, eval = FALSE}
