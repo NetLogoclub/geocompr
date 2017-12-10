@@ -436,7 +436,7 @@ Naturally, the projection of the input raster and the input vector object have t
 ```{r, message = FALSE}
 shops = st_transform(shops, proj4string(reclass))
 # create poi raster
-poi = rasterize(x = shops, y = input$pop, field = "osm_id", fun = "count")
+poi = rasterize(x = shops, y = input_ras[[1]]$pop, field = "osm_id", fun = "count")
 ```
 
 As with the other rasters (population, women, mean age, household size) we would like to classify the `poi` raster into four classes (see section \@ref(create-census-rasters)). 
