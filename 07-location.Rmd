@@ -134,7 +134,7 @@ knitr::include_graphics("figures/08_census_stack.png")
 ```
 
 <!-- find out about new lines in headings + blank cells-->
-The next stage is to reclassify the values of the rasters stored in `input_ras` in accordance with the survey mentioned in section \@ref(case-study), using the **raster** function `reclassify()`.
+The next stage is to reclassify the values of the rasters stored in `input_ras` in accordance with the survey mentioned in section \@ref(case-study), using the **raster** function `reclassify()`, which was introduced in section \@ref(local-operations).
 In the case of the population data we convert the classes into a numeric data type using class means. 
 Raster cells are assumed to have a population of 127 if they had a value of 1 (cells in 'class 1' contain between 3 and 250 inhabitants) and 375 if they had a value of 2 (containing 250 to 500 inhabitants), and so on (see Table \@ref(tab:census-desc)).
 A cell value of 10,000 inhabitants was chosen for 'class 6' because these cells contain more than 8000 people.
