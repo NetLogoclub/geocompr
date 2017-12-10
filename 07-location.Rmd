@@ -4,7 +4,7 @@
 
 ## Prerequisites {-}
 
-- This chapter requires the following packages to be loaded (**ggmap** **classInt** must also be installed):
+- This chapter requires the following packages (**ggmap** and **classInt** must also be installed):
 
 ```{r, message = FALSE} 
 library(osmdata)
@@ -18,14 +18,15 @@ library(tidyverse)
 
 ## Introduction
 
-This chapter demonstrates how the skills learned in the previous chapters can be applied to location analysis.
-Geomarketing (also called location analysis) is a broad field of research and commercial application, the aim of which is to decide the optimal location for new services.
-A standard example is where to locate a new shop: there are typically hundreds of possible locations in a city and location analysis can be used to decide where the shop will attract most visitors and, ultimately, make most profit.
-There are also many non-commercial applications that can use the technique for public benefit.
-A good example is where to locate new health services [@tomintz_geography_2008].
+This chapter demonstrates how the skills learned in Part I can be applied to a particular domain: location analysis (also called geomarketing).
+This is a broad field of research and commercial application, the aim of which is usually to decide the optimal location for new services.
+A typical example is where to locate a new shop.
+The aim here is to attract most visitors and, ultimately, make most profit.
+There are also many non-commercial applications that can use the technique for public benefit, for example where to locate new health services [@tomintz_geography_2008].
 
-Geomarketing is focused on people and where they are likely to spend their time and other resources.
-However, it has several links with ecology: animals and plants have needs which can be best met in optimal locations based on variables that change over space (called gradients in the ecological literature --- see e.g., @muenchow_review_2017<!--and chapter xx-->).
+People are fundamental to location analysis, in particular where they are likely spend their time and other resources.
+However, ecological concepts and models can be useful for store location analysis.
+Animals have needs can best meet their needs in certain 'optimal' locations, based on variables that change over space [@muenchow_review_2017]<!--and chapter xx-->.
 <!-- add reference!! -->
 Polar bears, for example, prefer northern latitudes where temperatures are lower and food (seals and sea lions) is plentiful.
 Similarly, humans tend to congregate certain places, creating economic niches (and high land prices) analogous to the ecological niche of the Arctic.
