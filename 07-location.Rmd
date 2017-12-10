@@ -4,10 +4,9 @@
 
 ## Prerequisites {-}
 
-- This chapter requires the following packages to be loaded:
+- This chapter requires the following packages to be loaded (**ggmap** **classInt** must also be installed):
 
 ```{r, message = FALSE} 
-library(classInt)
 library(osmdata)
 library(raster)
 library(sf)
@@ -15,7 +14,6 @@ library(sp)
 library(tidyverse)
 ```
 
-- These package must be installed: **ggmap**
 - Required data will be downloaded in due course.
 
 ## Introduction
