@@ -54,14 +54,15 @@ Location analysts would happily charge high rates to answer such questions, but 
 
 The following sections will demonstrate how the techniques learned during the first chapters of the book can be applied to undertake the following steps:
 
-- Access socio-demographic data by downloading gridded German census data (section \@ref(create-census-rasters)).
+- Tidy the input data from the German census (section \@ref(tidy-the-input-data)).
+- Create geographic objects from the census data by converting the census data into raster format (section \@ref(create-census-rasters)).
 - Identify metropolitan areas with high population densities (section \@ref(define-metropolitan-areas)).
 - Download detailed geographic data (from OpenStreetMap, with **osmdata**) for these areas (section \@ref(points-of-interest)).
 - Create rasters for scoring the relative desirability of different locations using map algebra (section \@ref(identifying-suitable-locations)).
 
 Although we have applied these steps to a specific case study, they could be generalized to many scenarios of store location or public service provision.
 
-### Create census rasters
+### Tidy the input data
 
 The German government provides gridded census data at either 1 km or 100 m resolution.
 The following code chunk downloads, unzips and reads-in the 1 km data.
@@ -80,7 +81,9 @@ saveRDS(census, file = "extdata/census.rds")
 census = readRDS("extdata/census.rds")
 ```
 
-Next we select the variables we need: x and y coordinates, the number of inhabitants (population), mean age, proportion of women and the household size (Table \@ref(tab:census-desc)). 
+The `census` object is a data frame containing 13 variables for more than 300,000 grid cells accross Germany.
+For our work we only need a subset of these: Easting and Northing, number of inhabitants (population), mean average age, proportion of women and average household size.
+These variables and selected and renamed in the code chunk below and summarized in Table \@ref(tab:census-desc). 
 
 ```{r census-desc, echo = FALSE}
 tab = tribble(
@@ -115,6 +118,8 @@ input = dplyr::select(census, x = x_mp_1km, y = y_mp_1km, pop = Einwohner,
 # set -1 and -9 to NA
 input = mutate_all(input, funs(ifelse(. %in% c(-1, -9), NA, .)))
 ```
+
+### Create census rasters
  
 After the data preprocessing, we convert the table into a raster stack.
 First, we use the x- and y-coordinates and the CRS to convert the `data.frame` into a spatial object.
