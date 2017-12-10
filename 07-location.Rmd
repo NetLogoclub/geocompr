@@ -182,8 +182,8 @@ Next, we only keep cells with more than half a million inhabitants using a Boole
 
 ```{r}
 pop_agg = aggregate(reclass$pop, fact = 20000 / res(reclass)[1], fun = sum)
-polys = rasterToPolygons(pop_agg[pop_agg > 500000, drop = FALSE])
-polys = st_as_sf(polys)
+polys = rasterToPolygons(pop_agg[pop_agg > 500000, drop = FALSE]) %>% 
+  st_as_sf(polys)
 ```
 
 Plotting these polygons reveals eight metropolitan regions (Fig. \@ref(fig:metro-areas)).
