@@ -162,7 +162,8 @@ rcl = list(rcl_pop, rcl_women, rcl_age, rcl_hh)
 ```{r}
 reclass = map2(input_ras, rcl, reclassify, right = NA) %>%
   set_names(names(input_tidy[3:6])) %>% 
-  stack(crs = 3035)
+  stack()
+crs(reclass) = st_crs(3035)$proj4string
 ```
 
 <!-- maybe a sentence or two of explanations could be important here -->
@@ -176,12 +177,17 @@ names(reclass) = names(input_ras)
 
 ### Define metropolitan areas
 
-We arbitrarily define a pixel of 20 sq-km as metropolitan if more than half a million people lives in it.
-The `aggregate()` command helps to change the resolution from 1 to 20 sq-km while each output cell represents the sum of all 1 sq-km input cells (see section \@ref(raster-alignment)).
-Next, we only keep cells with more than half a million inhabitants using a Boolean operation, and convert the resulting cells into spatial polygons of class `sf`.
+We define metropolitan areas as pixels of 20 km^2^ inhabited by more than 500,000 people.
+Pixels at this coarse resolution can rapidly be created using `aggregate()`, as introduced in section \@ref(raster-alignment).
+The command below uses the argument `fact = 20` to reduce the resolution of the result twenty-fold (recall the original raster resolution was 1 km^2^):
 
 ```{r}
-pop_agg = aggregate(reclass$pop, fact = 20000 / res(reclass)[1], fun = sum)
+pop_agg = aggregate(reclass$pop, fact = 20, fun = sum)
+```
+
+The next stage is to keep only cells with more than half a million people, and convert the result cells into a vector object of class `sf`.
+
+```{r}
 polys = rasterToPolygons(pop_agg[pop_agg > 500000, drop = FALSE]) %>% 
   st_as_sf(polys)
 ```
@@ -428,7 +434,7 @@ This is because the `shop` column contains `NA` values, which the `count()` func
 Naturally, the projection of the input raster and the input vector object have to match which is why we first have to reproject our shops to the CRS of the raster object.
 
 ```{r, message = FALSE}
-shops = st_transform(shops, proj4string(input$pop))
+shops = st_transform(shops, proj4string(reclass))
 # create poi raster
 poi = rasterize(x = shops, y = input$pop, field = "osm_id", fun = "count")
 ```
