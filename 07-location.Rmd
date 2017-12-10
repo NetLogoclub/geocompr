@@ -181,7 +181,7 @@ The `aggregate()` command helps to change the resolution from 1 to 20 sq-km whil
 Next, we only keep cells with more than half a million inhabitants using a Boolean operation, and convert the resulting cells into spatial polygons of class `sf`.
 
 ```{r}
-pop_agg = aggregate(reclass$pop, fact = 20000 / res(input)[1], fun = sum)
+pop_agg = aggregate(reclass$pop, fact = 20000 / res(input_ras)[1], fun = sum)
 polys = rasterToPolygons(pop_agg[pop_agg > 500000, drop = FALSE])
 polys = st_as_sf(polys)
 ```
