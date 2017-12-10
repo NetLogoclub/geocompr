@@ -63,9 +63,8 @@ Although we have applied these steps to a specific case study, they could be gen
 
 ### Create census rasters
 
-The German government provides a csv-file containing gridded census data of 2011 for Germany.
-One can either download a 1 km or a 100 m resolution.
-Here, we download the 1 km data, unzip it and read it into R.
+The German government provides gridded census data at either 1 km or 100 m resolution.
+The following code chunk downloads, unzips and reads-in the 1 km data.
 
 ```{r, eval=FALSE}
 download.file("https://tinyurl.com/ybtpkwxz", destfile = "census.zip")
