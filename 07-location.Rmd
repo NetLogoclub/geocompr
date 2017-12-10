@@ -124,7 +124,7 @@ input_tidy = mutate_all(input, funs(ifelse(. %in% c(-1, -9), NA, .)))
 Now the data has been preprocessed, it can be converted into a raster stack.
 This is done by first using the x and y coordinates in the `census` data frame into a spatial object.
 `gridded()` converts a `SpatialPolygonsDataFrame` (but does not support `sf` objects) into a `SpatialPixelsDataFrame` which in turn can be used as an input for **raster**'s `stack()` function.
-The final raster stack consists of four layers: inhabitants, mean age, portion of women and household size (Fig. \@ref(fig:census-stack)).
+The final raster stack consists of four layers: inhabitants, mean age, portion of women and household size, illustrated in Figure \@ref(fig:census-stack).
 
 ```{r}
 input_ras = map(3:6, ~ rasterFromXYZ(input_tidy[c(1:2, .)]))
