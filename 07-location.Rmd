@@ -10,7 +10,6 @@
 library(osmdata)
 library(raster)
 library(sf)
-library(sp)
 library(tidyverse)
 ```
 
